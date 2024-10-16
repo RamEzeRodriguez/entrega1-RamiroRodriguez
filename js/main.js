@@ -1,5 +1,5 @@
 let articulos = [];
-const MAX_ARTICULOS = 10;
+const MAX_ARTICULOS = 15;
 function agregarArticulo() {
     if (articulos.length >= MAX_ARTICULOS) {
         alert("Alcanzaste el máximo de artículos permitidos.");
