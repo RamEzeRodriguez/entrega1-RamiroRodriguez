@@ -1,41 +1,54 @@
-let articulos = [];
-const MAX_ARTICULOS = 15;
-function agregarArticulo() {
-    if (articulos.length >= MAX_ARTICULOS) {
-        alert("Alcanzaste el máximo de artículos permitidos.");
-        return;
+const infoTragos = [
+    "Fernet: Originario de Italia. Dato curioso: Se toma con coca",
+    "Cerveza: Originaria de Mesopotamia. Dato curioso: Hay más de 100 tipos",
+    "Vino: Originario de la Antigua Persia. Dato curioso: Se elabora con uvas",
+    "Gancia: Originario de Italia. Dato curioso: El aperitivo mas elegido por las maestras de nivel inicial"
+  ];
+  
+  function mostrarMensajeDeEleccion(trago) {
+    switch (trago) {
+      case 1:
+        alert("¡Si no hay Fernet que no haya nada!");
+        break;
+      case 2:
+        alert("¡Reconozco que la rueda también es un buen invento pero no va tan bien con la pizza!");
+        break;
+      case 3:
+        alert("¡Ojo, cuando el vino entra, la verdad sale!");
+        break;
+      case 4:
+        alert("¡Quiere vestirse de cerveza para que la tomen en serio!");
+        break;
+      default:
+        alert("Opción inválida.");
+        break;
     }
-    
-    let nuevoArticulo = prompt("Ingresa un artículo:");
-    if (nuevoArticulo) {
-        articulos.push(nuevoArticulo);
-        console.log(`Articulo agregado: ${nuevoArticulo}`);
-        alert("Articulo agregado con éxito.");
+  
+    if (trago >= 1 && trago <= infoTragos.length) {
+        alert(infoTragos[trago - 1]);
+        console.log("Elegiste la opción:", trago);
     }
-}
-function mostrarArticulos() {
-    if (articulos.length === 0) {
-        alert("No hay artículos para mostrar.");
-    } else {
-        let listaArticulos = "Tus articulos son:\n";
-        for (let i = 0; i < articulos.length; i++) {
-            listaArticulos += `${i + 1}. ${articulos[i]}\n`;
-        }
-        alert(listaArticulos);
+  }
+  
+  function obtenerEleccionUsuario(mensajeMenu) {
+    let menu = parseInt(prompt(mensajeMenu));
+    return menu;
+  }
+
+  function ejecutarSimulador(mensajeDespedida) {
+    let continuar = true;
+  
+    while (continuar) {
+      let eleccion = obtenerEleccionUsuario("Elija su trago preferido para saber más:\n 1-Fernet\n 2-Cerveza\n 3-Vino\n 4-Gancia\n 5-Salir");
+  
+      if (eleccion === 5) {
+        continuar = false;
+        alert(mensajeDespedida);
+      } else {
+        mostrarMensajeDeEleccion(eleccion);
+      }
     }
-}
-function eliminarArticulos() {
-    if (articulos.length === 0) {
-        alert("No hay articulos para eliminar.");
-        return;
-    }
-    
-    let indice = parseInt(prompt("Ingresa el número de articulo que deseas eliminar:")) - 1;
-    if (indice >= 0 && indice < articulos.length) {
-        let articuloEliminado = articulos.splice(indice, 1);
-        console.log(`Articulo eliminado: ${articuloEliminado}`);
-        alert(`El articulo "${articuloEliminado}" ha sido eliminado.`);
-    } else {
-        alert("Número de articulo inválido.");
-    }
-}
+  }
+  
+  ejecutarSimulador("¡Gracias y beba con moderación!");
+  
