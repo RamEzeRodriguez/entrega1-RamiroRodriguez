@@ -1,32 +1,32 @@
-const infoTragos = [
-    "Fernet: Originario de Italia. Dato curioso: Se toma con coca",
-    "Cerveza: Originaria de Mesopotamia. Dato curioso: Hay más de 100 tipos",
-    "Vino: Originario de la Antigua Persia. Dato curioso: Se elabora con uvas",
-    "Gancia: Originario de Italia. Dato curioso: El aperitivo mas elegido por las maestras de nivel inicial"
+const infoJugadores = [
+    "Mediapunta/Mediocentro ofensivo: Ebox-to-box con excelente visión de juego, capacidad de llegada al área y potente remate.",
+    "Delantero/Extremo derecho: Atacante versátil, alta movilidad, definición precisa y capacidad de desequilibrio.",
+    "Delantero centro: Nueve puro, especialista en definición, movimientos sin balón y juego de espaldas.",
+    "Segundo delantero/Mediapunta: Mediapunta polivalente, capacidad de asociación, repliegue táctico y llegada al gol.",
   ];
   
-  function mostrarMensajeDeEleccion(trago) {
-    switch (trago) {
+  function mostrarMensajeDeEleccion(jugador) {
+    switch (jugador) {
       case 1:
-        alert("¡Si no hay Fernet que no haya nada!");
+        alert("Jude Bellingham (Real Madrid)");
         break;
       case 2:
-        alert("¡Reconozco que la rueda también es un buen invento pero no va tan bien con la pizza!");
+        alert("Julián Álvarez (Atlético de Madrid)");
         break;
       case 3:
-        alert("¡Ojo, cuando el vino entra, la verdad sale!");
+        alert("Robert Lewandowski (Barcelona F.C.)");
         break;
       case 4:
-        alert("¡Quiere vestirse de cerveza para que la tomen en serio!");
+        alert("Antoine Griezmann (Atlético de Madrid)");
         break;
       default:
         alert("Opción inválida.");
         break;
     }
   
-    if (trago >= 1 && trago <= infoTragos.length) {
-        alert(infoTragos[trago - 1]);
-        console.log("Elegiste la opción:", trago);
+    if (jugador >= 1 && jugador <= infoJugadores.length) {
+        alert(infoJugadores[jugador - 1]);
+        console.log("Elegiste la opción:", jugador);
     }
   }
   
@@ -39,7 +39,7 @@ const infoTragos = [
     let continuar = true;
   
     while (continuar) {
-      let eleccion = obtenerEleccionUsuario("Elija su trago preferido para saber más:\n 1-Fernet\n 2-Cerveza\n 3-Vino\n 4-Gancia\n 5-Salir");
+      let eleccion = obtenerEleccionUsuario("Elija un jugador para saber más:\n 1-Jude Bellingham\n 2-Julián Álvarez\n 3-Robert Lewandowski\n 4-Antoine Griezmann\n 5-Salir");
   
       if (eleccion === 5) {
         continuar = false;
@@ -50,5 +50,5 @@ const infoTragos = [
     }
   }
   
-  ejecutarSimulador("¡Gracias y beba con moderación!");
+  ejecutarSimulador("Hasta pronto");
   
