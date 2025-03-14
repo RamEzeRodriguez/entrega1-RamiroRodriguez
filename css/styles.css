@@ -1,0 +1,152 @@
+/* Estilos básicos para la tienda */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+#productos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  grid-gap: 20px; /* Espacio entre los productos */
+}
+.producto {
+  background-color: #fff; /* Fondo blanco para cada producto */
+  padding: 20px; /* Espacio interior para cada producto */
+  border: 1px solid #ddd; /* Borde para cada producto */
+  border-radius: 10px; /* Esquinas redondeadas para cada producto */
+}
+
+#productos-container div {
+  border: 1px solid #8728a7;
+  background-color: #fff; /* Cambiar a blanco para un contraste mejor */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: calc(33,33% - 30px); /* Cambiar a 25% para más productos en fila */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 250%;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.carousel-container:hover .carousel-image {
+  transform: scale(1.15);
+}
+
+button {
+  background-color: #8728a7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #bf80d4;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  #productos-container div {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  #productos-container div {
+    width: 100%;
+  }
+}
+/* Media query para pantallas más pequeñas, ej. tablets, en este caso se modifican las columnas a 1 */
+@media (max-width: 768px) {
+  #productos-container {
+      grid-template-columns: repeat(1, 1fr); /* 1 columna */
+      grid-template-rows: repeat(6, auto);
+  }
+}
+
+/* Styles for carrito.html */
+#contenedor-carrito{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.producto-carrito{
+  display: flex;
+  gap: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  width: 100%;
+  max-width: 600px;
+  align-items: center;
+}
+
+.carrito-image{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.eliminar-btn{
+  background-color: red;
+}
+
+#total-carrito{
+  font-weight: bold;
+}
+
+.cart-icon{
+  font-size: 20px; /* Tamaño del icono */
+  margin-right: 5px; /* Espaciado entre el icono y el número */
+  color: rgb(241, 237, 5);
+}
+#cart-count{
+  color: white;
+}
+.cart-icon-container{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}

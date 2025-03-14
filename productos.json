@@ -1,0 +1,32 @@
+[
+    {
+        "nombre": "Producto 1",
+        "precio": 10,
+        "imagenes": ["./img/beatmaker.jpg"],
+        "descripcion": "Serigrafía a 3 colores sobre papel chambril, con tinta especial.\nEdición limitada, numerada y firmada."
+    },
+    {
+        "nombre": "Producto 2",
+        "precio": 20,
+        "imagenes": ["./img/prophet5.jpg"],
+        "descripcion": "Serigrafía a 3 colores sobre papel chambril, con tinta especial.\nEdición limitada, numerada y firmada."
+    },
+    {
+        "nombre": "Producto 3",
+        "precio": 35,
+        "imagenes": ["./img/rack.jpg"], 
+        "descripcion": "Serigrafía a 3 colores sobre papel chambril, con tinta especial.\nEdición limitada, numerada y firmada."
+    },
+    {
+        "nombre": "Producto 4",
+        "precio": 35,
+        "imagenes": ["./img/synth.jpg"], 
+        "descripcion": "Serigrafía a 3 colores sobre papel chambril, con tinta especial.\nEdición limitada, numerada y firmada."
+    },
+    {
+        "nombre": "Producto 5",
+        "precio": 35,
+        "imagenes": ["./img/yamahacs80.jpg","./img/yamahacs80living.jpg"], 
+        "descripcion": "Serigrafía a 3 colores sobre papel chambril, con tinta especial.\nEdición limitada, numerada y firmada."
+    }
+]

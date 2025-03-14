@@ -1,54 +1,90 @@
-const infoJugadores = [
-    "Mediapunta/Mediocentro ofensivo: Ebox-to-box con excelente visión de juego, capacidad de llegada al área y potente remate.",
-    "Delantero/Extremo derecho: Atacante versátil, alta movilidad, definición precisa y capacidad de desequilibrio.",
-    "Delantero centro: Nueve puro, especialista en definición, movimientos sin balón y juego de espaldas.",
-    "Segundo delantero/Mediapunta: Mediapunta polivalente, capacidad de asociación, repliegue táctico y llegada al gol.",
-  ];
-  
-  function mostrarMensajeDeEleccion(jugador) {
-    switch (jugador) {
-      case 1:
-        alert("Jude Bellingham (Real Madrid)");
-        break;
-      case 2:
-        alert("Julián Álvarez (Atlético de Madrid)");
-        break;
-      case 3:
-        alert("Robert Lewandowski (Barcelona F.C.)");
-        break;
-      case 4:
-        alert("Antoine Griezmann (Atlético de Madrid)");
-        break;
-      default:
-        alert("Opción inválida.");
-        break;
-    }
-  
-    if (jugador >= 1 && jugador <= infoJugadores.length) {
-        alert(infoJugadores[jugador - 1]);
-        console.log("Elegiste la opción:", jugador);
-    }
-  }
-  
-  function obtenerEleccionUsuario(mensajeMenu) {
-    let menu = parseInt(prompt(mensajeMenu));
-    return menu;
-  }
+// Carrito de compras
+let carrito = [];
+let productos = [];
 
-  function ejecutarSimulador(mensajeDespedida) {
-    let continuar = true;
-  
-    while (continuar) {
-      let eleccion = obtenerEleccionUsuario("Elija un jugador para saber más:\n 1-Jude Bellingham\n 2-Julián Álvarez\n 3-Robert Lewandowski\n 4-Antoine Griezmann\n 5-Salir");
-  
-      if (eleccion === 5) {
-        continuar = false;
-        alert(mensajeDespedida);
-      } else {
-        mostrarMensajeDeEleccion(eleccion);
-      }
+
+
+// Función para mostrar los productos en la página web
+async function mostrarProductos() {
+  try {
+    const response = await fetch('productos.json');
+    if (!response.ok) {
+      throw new Error(`Error loading products: ${response.status}`);
     }
+    productos = await response.json(); // Carga de productos desde JSON
+    const productosContainer = document.getElementById("productos-container");
+    productos.forEach((producto) => {
+      const productoDiv = document.createElement("div");
+      // carrusel
+      let carouselHtml = `<div class="carousel-container">`;
+      carouselHtml += `<img class="carousel-image" src="${producto.imagenes && producto.imagenes.length > 0 ? producto.imagenes[0] : './img/placeholder.jpg'}" alt="${producto.nombre}">`;
+      carouselHtml += `<div class="carousel-dots">`;
+
+      if (producto.imagenes && producto.imagenes.length > 0) {
+        producto.imagenes.forEach((image, index) => {
+          carouselHtml += `<span class="dot ${index === 0 ? 'active' : ''}" 
+                                   onclick="changeImage(${productos.indexOf(producto)}, ${index})"></span>`;
+        });
+      } 
+      carouselHtml += `</div>`;
+
+      carouselHtml += `</div>`;
+
+      productoDiv.innerHTML = `
+              ${carouselHtml}
+              <h3>${producto.nombre}</h3>
+              <p>${producto.descripcion}</p>
+              <p>Precio: $${producto.precio}</p>
+              <button onclick="agregarAlCarrito('${producto.nombre}')">Agregar al carrito</button>
+          `;
+      productoDiv.setAttribute('id', productos.indexOf(producto));
+      productosContainer.appendChild(productoDiv);
+    });
+  } catch (error) {
+    console.error("An error has occurred:", error);
+    document.getElementById("productos").innerHTML = "<p>Error cargando productos. Intente nuevamente más tarde.</p>";
   }
-  
-  ejecutarSimulador("Hasta pronto");
-  
+}
+
+// Funcion para actualizar el contador del carrito
+function updateCartCount() {
+  const cartCountElement = document.getElementById("cart-count");
+  cartCountElement.textContent = carrito.length;
+}
+
+// Función para agregar un producto al carrito
+function agregarAlCarrito(nombreProducto) {
+  const producto = productos.find((producto) => producto.nombre === nombreProducto);
+  if (producto) {
+    carrito.push(producto);
+    guardarCarrito();
+    updateCartCount();
+  } else {
+    console.error(`Producto ${nombreProducto} not found`);
+  }
+}
+
+
+
+
+// Función para guardar el carrito en el almacenamiento local
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// Función para cargar el carrito desde el almacenamiento local
+function cargarCarrito() {
+  const carritoGuardado = localStorage.getItem("carrito");
+  if (carritoGuardado) {
+    carrito = JSON.parse(carritoGuardado);
+    updateCartCount(); 
+  }
+}
+
+// Evento para cargar el carrito al cargar la página
+window.addEventListener("DOMContentLoaded", () => {
+  mostrarProductos();
+  cargarCarrito();
+});
+
+

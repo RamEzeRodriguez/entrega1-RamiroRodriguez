@@ -1,13 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- JS -->
-    <script defer src="./js/main.js"></script>
-    <title>Entrega 1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Online</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Entrega1</h1>
+  <header>
+    <h1>LUZMALA SERIGRAFIA</h1>
+    <nav>
+      <ul>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="./pages/carrito.html" id="boton-carrito">Ver carrito</a></li>
+        <li class="cart-icon-container"><i class="cart-icon">🛒</i> <span id="cart-count">0</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="productos">
+      <h2>Serigrafias</h2>
+      <div id="productos-container"></div>
+    </section>
+  </main>
+
+  <script src="./js/main.js"></script>
 </body>
 </html>
