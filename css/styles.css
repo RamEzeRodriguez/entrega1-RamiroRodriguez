@@ -1,4 +1,4 @@
-/* Estilos básicos para la tienda */
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
@@ -30,22 +30,22 @@ nav a {
 
 #productos-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-  grid-gap: 20px; /* Espacio entre los productos */
+  grid-template-columns: repeat(3, 1fr); 
+  grid-gap: 20px;
 }
 .producto {
-  background-color: #fff; /* Fondo blanco para cada producto */
-  padding: 20px; /* Espacio interior para cada producto */
-  border: 1px solid #ddd; /* Borde para cada producto */
-  border-radius: 10px; /* Esquinas redondeadas para cada producto */
+  background-color: #fff;
+  padding: 20px; 
+  border: 1px solid #ddd;
+  border-radius: 10px;
 }
 
 #productos-container div {
   border: 1px solid #8728a7;
-  background-color: #fff; /* Cambiar a blanco para un contraste mejor */
+  background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: calc(33,33% - 30px); /* Cambiar a 25% para más productos en fila */
+  width: calc(33,33% - 30px);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -98,15 +98,15 @@ button:hover {
     width: 100%;
   }
 }
-/* Media query para pantallas más pequeñas, ej. tablets, en este caso se modifican las columnas a 1 */
+
 @media (max-width: 768px) {
   #productos-container {
-      grid-template-columns: repeat(1, 1fr); /* 1 columna */
+      grid-template-columns: repeat(1, 1fr); 
       grid-template-rows: repeat(6, auto);
   }
 }
 
-/* Styles for carrito.html */
+/* carrito.html */
 #contenedor-carrito{
   display: flex;
   flex-direction: column;
@@ -138,8 +138,8 @@ button:hover {
 }
 
 .cart-icon{
-  font-size: 20px; /* Tamaño del icono */
-  margin-right: 5px; /* Espaciado entre el icono y el número */
+  font-size: 20px;
+  margin-right: 5px;
   color: rgb(241, 237, 5);
 }
 #cart-count{
